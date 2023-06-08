@@ -45,7 +45,7 @@ public static void llenarCBCuentas(String N) throws ClassNotFoundException, Inst
         N = JtIde.getText().trim();
         try {
             if (!Conexion.abrirConexion()) {
-                JOptionPane.showMessageDialog(null, "Error en conexión a base de datos");
+                JOptionPane.showMessageDialog(null, "Error en conexiÃ³n a base de datos");
             } else {
                 CbCuenta.removeAllItems();
                 ArrayList mListaCuentas = Conexion.getListaCuentas(N);
@@ -185,14 +185,14 @@ public static int idPedido=0;
 public static int idComp=0;
 public static int iddetal=0;
     private void BtPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtPagarActionPerformed
-      int confirmacion = JOptionPane.showConfirmDialog(null, "¿Desea realizar el pago? Una vez pague no podra volver a realizar un pedido hasta el dia siguiente");
+      int confirmacion = JOptionPane.showConfirmDialog(null, "Â¿Desea realizar el pago? Una vez pague no podra volver a realizar un pedido hasta el dia siguiente");
                 if (confirmacion == JOptionPane.YES_OPTION && Funciones.verificarStock() && Funciones.verificarSaldo(Integer.parseInt(JLTotal.getText()))) {
                     idPedido++;
                     idComp=obtenerIdCom()+1;
                     iddetal++;
                     boolean pedidoHoy = verificarPedidoRealizadoHoy(Integer.parseInt(JtIde.getText()));
                     if(pedidoHoy){
-                        JOptionPane.showMessageDialog(null, "Ya ha realizado un pedido hoy. No se puede hacer otro pedido hasta el día siguiente.");
+                        JOptionPane.showMessageDialog(null, "Ya ha realizado un pedido hoy. No se puede hacer otro pedido hasta el dÃ­a siguiente.");
                     }else{
                   Funciones.Pagar();
                     System.out.println("IDPEDIDOOOO" + obtenerIdPedido());
@@ -293,6 +293,7 @@ public static int iddetal=0;
     private void BtSeguirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtSeguirActionPerformed
         Inicio.maximo=Inicio.maximo+20;
         BtAgregar.setEnabled(true);
+        setVisible(false);
     }//GEN-LAST:event_BtSeguirActionPerformed
 
     public static void main(String args[]) {
