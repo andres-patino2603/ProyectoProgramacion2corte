@@ -14,16 +14,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import Modelo.producto;
 
-/**
- *
- * @author Somos Programadores
- * https://www.facebook.com/developers08062019/
- */
+
 public class Conexion {
 
       public static Connection con = null;
     
-    // Las diversas instrucciones que se env韆n a la BD
+    // Las diversas instrucciones que se env铆an a la BD
     private static Statement st = null;
     
     // El driver de MySQL
@@ -32,25 +28,25 @@ public class Conexion {
     // El url de la BD, se especifica el nombre del host y el de la base de datos
     private static final String URL = "jdbc:mysql://localhost/proyect_program";
     
-    // Abrir la conexi髇 con la BD
+    // Abrir la conexi贸n con la BD
    public static boolean abrirConexion() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException{
-      // Se realiza la conexi髇
+      // Se realiza la conexi贸n
 try {
-        // Se realiza la conexi髇
-        System.out.println("Intentando abrir la conexi髇...");
+        // Se realiza la conexi贸n
+        System.out.println("Intentando abrir la conexi贸n...");
         Class.forName(DRIVER);
         con = DriverManager.getConnection(URL, "usuario", "root");
         st = con.createStatement();
-        System.out.println("Conexi髇 abierta correctamente");
+        System.out.println("Conexi贸n abierta correctamente");
         return true;
     } catch (ClassNotFoundException | SQLException e) {
-        System.out.println("Error al abrir la conexi髇: " + e.getMessage());
+        System.out.println("Error al abrir la conexi贸n: " + e.getMessage());
         return false;
     }
 }
    
     
-    // Cerrar la conexi騨 con la BD
+    // Cerrar la conexi貌n con la BD
     public static void cerrarConexion() throws SQLException {
         con.close();
         st.close();
@@ -107,12 +103,12 @@ public static ArrayList getListaCuentas(String NoCuenta) {
         }
         return mListaCuentas;
     }
-      public static void registrar(int Identificacion, String Nombre, String Direccion, String Telefono, String Email, String Contrase馻) throws SQLException {
+      public static void registrar(int Identificacion, String Nombre, String Direccion, String Telefono, String Email, String Contrase帽a) throws SQLException {
         String consulta;
        
         // Se arma la consulta
         consulta = "insert into clientes "
-                + "values ("+Identificacion+", ' "+Nombre+" ', ' "+Direccion+" ', ' "+Telefono+" ', ' "+Email+" ', ' " + Contrase馻 +" ' );";
+                + "values ("+Identificacion+", ' "+Nombre+" ', ' "+Direccion+" ', ' "+Telefono+" ', ' "+Email+" ', ' " + Contrase帽a +" ' );";
         System.out.println(consulta);
         
         // Se envia la consulta a la BD
